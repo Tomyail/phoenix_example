@@ -17,6 +17,19 @@ defmodule AuctionWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    # 这句话相当于下面八句话
+
+    resources "/items", ItemController, only: [:index]
+
+    # get "/items", ItemController, :index
+    # get "/items/new", ItemController, :new
+    # post "/items", ItemController, :create
+    # get "/items/:id", ItemController, :show
+    # get "/items/:id/edit", ItemController, :edit
+    # patch "/items/:id", ItemController, :update
+    # put "/items/:id", ItemController, :update
+    # delete "/items/:id", ItemController, :delete
   end
 
   # Other scopes may use custom stacks.
