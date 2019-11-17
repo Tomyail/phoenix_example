@@ -20,7 +20,14 @@ defmodule AuctionWeb.Router do
 
     # 这句话相当于下面八句话
 
-    resources "/items", ItemController, only: [:index, :show]
+    resources "/items", ItemController, only: [
+      :index,
+      :show,
+      :new,
+      :create,
+      :edit,
+      :update
+    ]
 
     # get "/items", ItemController, :index
     # get "/items/new", ItemController, :new
