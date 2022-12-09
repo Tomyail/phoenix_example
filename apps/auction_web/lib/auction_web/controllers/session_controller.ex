@@ -17,11 +17,15 @@ defmodule AuctionWeb.SessionController do
         _ -> 
         conn
         |> put_flash(:error, "That username and password combination cannot be found")
-        |> render("new.html")
+
     end
   end
 
 
-  def delete(conn, %{"user" => user}) do
+  def delete(conn,_params) do
+    conn
+    |> clear_session()
+    |> configure_session(drop: true)
+    |> redirect(to: Routes.item_path(conn, :index))
   end
 end
