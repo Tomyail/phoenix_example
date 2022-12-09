@@ -54,7 +54,6 @@ config :auction_web, AuctionWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
       ~r{lib/auction_web/views/.*(ex)$},
       ~r{lib/auction_web/templates/.*(eex)$}
     ]

@@ -29,6 +29,19 @@ defmodule AuctionWeb.Router do
       :update
     ]
 
+    resources "/users", UserController, only: [
+      :show,
+      :new,
+      :create
+    ]
+
+
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+    delete "/login", SessionController, :delete
+
+
+
     # get "/items", ItemController, :index
     # get "/items/new", ItemController, :new
     # post "/items", ItemController, :create

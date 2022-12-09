@@ -9,8 +9,7 @@ config :auction_web,
 config :auction_web, AuctionWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "N5OODua3tiopnF9o2pNYSSGQrGia46ZVle0VQWEOp9uhkpsWAHDDLCnVK44ekpcb",
-  render_errors: [view: AuctionWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: AuctionWeb.PubSub, adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: AuctionWeb.ErrorView, accepts: ~w(html json)]
 
 # By default, the umbrella project as well as each child
 # application will require this configuration file, as

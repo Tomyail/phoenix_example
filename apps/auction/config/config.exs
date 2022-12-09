@@ -35,6 +35,7 @@ config :auction, ecto_repos: [Auction.Repo]
 config :auction, Auction.Repo,
   database: "auction",
   username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  port: "5432"
+  password: "071025993",
+  hostname: "postgresql",
+  port: "5432",
+  template: "template0"

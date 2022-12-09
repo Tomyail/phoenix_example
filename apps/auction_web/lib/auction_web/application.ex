@@ -9,9 +9,11 @@ defmodule AuctionWeb.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      AuctionWeb.Endpoint
+      AuctionWeb.Endpoint,
       # Starts a worker by calling: AuctionWeb.Worker.start_link(arg)
       # {AuctionWeb.Worker, arg},
+
+      {Phoenix.PubSub, [name: AuctionWeb.PubSub, adapter: Phoenix.PubSub.PG2]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
