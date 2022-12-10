@@ -21,27 +21,28 @@ defmodule AuctionWeb.Router do
 
     # 这句话相当于下面八句话
 
-    resources "/items", ItemController, only: [
-      :index,
-      :show,
-      :new,
-      :create,
-      :edit,
-      :update
-    ]
+    resources "/items", ItemController,
+      only: [
+        :index,
+        :show,
+        :new,
+        :create,
+        :edit,
+        :update
+      ] do
+      resources "/bids", BidController, only: [:create]
+    end
 
-    resources "/users", UserController, only: [
-      :show,
-      :new,
-      :create
-    ]
-
+    resources "/users", UserController,
+      only: [
+        :show,
+        :new,
+        :create
+      ]
 
     get "/login", SessionController, :new
     post "/login", SessionController, :create
     delete "/login", SessionController, :delete
-
-
 
     # get "/items", ItemController, :index
     # get "/items/new", ItemController, :new
