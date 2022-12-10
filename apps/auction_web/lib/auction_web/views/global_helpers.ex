@@ -1,4 +1,5 @@
 defmodule AuctionWeb.GlobalHelpers do
+  use Timex
   def integer_to_currency(cents) do
     dolars_and_cents =
       cents
@@ -6,5 +7,10 @@ defmodule AuctionWeb.GlobalHelpers do
       |> Decimal.round(2)
 
     "$#{dolars_and_cents}"
+  end
+
+  def formatted_datetime(datetime) do
+    datetime
+    |> Timex.format!("{YYYY}-{0M}-{0D} {h12}:{m}:{s}{am}")
   end
 end
