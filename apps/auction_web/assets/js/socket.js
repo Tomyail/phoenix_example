@@ -58,8 +58,15 @@ let match = document.location.pathname.match(/\/items\/(\d+)$/);
 if (match) {
   let itemId = match[1];
   // Now that you are connected, you can join channels with a topic:
-  console.log('start connect')
+  console.log("start connect");
   const channel = socket.channel(`item:${itemId}`, {});
+
+  channel.on("new_bid", data => {
+    console.log("new bid", data);
+    const elem = document.getElementById("bids");
+    elem.insertAdjacentHTML("afterbegin", data.body);
+  });
+
   channel
     .join()
     .receive("ok", resp => {
